@@ -107,25 +107,25 @@ int _tmain(int argc, _TCHAR* argv[])
 		// 白黒反転
 		cv::Mat image_diff_rev = 255-image_diff;
 
-		// シグモイド関数を通して濃淡の極端化
-		IplImage image = image_diff_rev;
-		double threshold = 210;
-		for(unsigned int y=0; y<image.height; y++)
-		{
-			for(unsigned int x=0; x<image.width; x++)
-			{
-				double preValue = (unsigned char)*(image.imageData + y*image.widthStep + x*image.nChannels);
+		//// シグモイド関数を通して濃淡の極端化
+		//IplImage image = image_diff_rev;
+		//double threshold = 210;
+		//for(unsigned int y=0; y<image.height; y++)
+		//{
+		//	for(unsigned int x=0; x<image.width; x++)
+		//	{
+		//		double preValue = (unsigned char)*(image.imageData + y*image.widthStep + x*image.nChannels);
 
-				double tmpValue = (preValue - threshold);
-				if(tmpValue < 0)
-					tmpValue = tmpValue / threshold;
-				else
-					tmpValue = tmpValue / (0xFF - threshold);
-				double result = 1.0 / (1.0 + exp(-5.0*tmpValue));
+		//		double tmpValue = (preValue - threshold);
+		//		if(tmpValue < 0)
+		//			tmpValue = tmpValue / threshold;
+		//		else
+		//			tmpValue = tmpValue / (0xFF - threshold);
+		//		double result = 1.0 / (1.0 + exp(-5.0*tmpValue));
 
-				*(image.imageData + y*image.widthStep + x*image.nChannels) = (unsigned char)(result * 0xFF);
-			}
-		}
+		//		*(image.imageData + y*image.widthStep + x*image.nChannels) = (unsigned char)(result * 0xFF);
+		//	}
+		//}
 
 		// 保存
 		cv::imwrite(exportFilePath.string(), image_diff_rev);
