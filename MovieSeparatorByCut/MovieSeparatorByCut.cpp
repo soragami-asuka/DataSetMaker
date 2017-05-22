@@ -50,6 +50,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		return -1;
 
 	unsigned int frameCount = (unsigned int)movie.get(CV_CAP_PROP_FRAME_COUNT);
+	unsigned int FPS = (unsigned int)movie.get(CV_CAP_PROP_FPS);
+	printf("frame count = %d\n", frameCount);
+	printf("fps = %d\n", FPS);
 
 	// 各フレームの前フレームとの誤差を算出する
 	printf("各フレームの誤差算出\n");
@@ -66,6 +69,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		for(unsigned int frame=1;frame<frameCount; frame++)
 		{
+			if((frame-1)%10 == 0)
+			{
+				printf("%6d frame", frame);
+				printf("\b\b\b\b\b\b\b\b\b\b\b\b");
+			}
+
 			cv::Mat captureImage = cv::Mat::ones(image_heigth, image_width, CV_32F);
 			{
 				cv::Mat tmpImage;
@@ -97,6 +106,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			captureImage_last = captureImage;
 		}
 	}
+	printf("\n");
 
 	// 前フレームとの差を取る
 	std::vector<__int64> lpFrameDistanceDist(frameCount, 0);
@@ -154,6 +164,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	for(unsigned int frame=0;frame<frameCount; frame++)
 	{
+		if(frame%10 == 1)
+		{
+			printf("%5d frame", frame);
+			printf("\b\b\b\b\b\b\b\b\b\b\b\b");
+		}
+
 		cv::Mat captureImage = cv::Mat::ones(image_heigth, image_width, CV_32F);
 		{
 			cv::Mat tmpImage;
@@ -187,6 +203,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		cv::imwrite(exportFilePath.string(), captureImage);
 	}
+	printf("\n");
 
 	return 0;
 }
