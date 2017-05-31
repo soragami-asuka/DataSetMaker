@@ -55,22 +55,22 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("各フレームの誤差算出\n");
 	std::vector<__int64> lpFrameDistance(frameCount, 0);
 	{
-		cv::Mat captureImage_last = cv::Mat::ones(image_heigth, image_width, CV_32F);
+		cv::Mat captureImage_last;
 		{
 			cv::Mat tmpImage;
 			movie >> tmpImage;
-			cv::resize(tmpImage, captureImage_last, captureImage_last.size(), cv::INTER_CUBIC);
+			cv::resize(tmpImage, captureImage_last, cv::Size(image_width, image_heigth), cv::INTER_CUBIC);
 		}
 		cv::blur(captureImage_last, captureImage_last, cv::Size(5,5));
 
 
 		for(unsigned int frame=1;frame<frameCount; frame++)
 		{
-			cv::Mat captureImage = cv::Mat::ones(image_heigth, image_width, CV_32F);
+			cv::Mat captureImage;
 			{
 				cv::Mat tmpImage;
 				movie >> tmpImage;
-				cv::resize(tmpImage, captureImage, captureImage.size(), cv::INTER_CUBIC);
+				cv::resize(tmpImage, captureImage, cv::Size(image_width, image_heigth), cv::INTER_CUBIC);
 			}
 			cv::blur(captureImage, captureImage, cv::Size(5,5));
 
@@ -154,11 +154,11 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	for(unsigned int frame=0;frame<frameCount; frame++)
 	{
-		cv::Mat captureImage = cv::Mat::ones(image_heigth, image_width, CV_32F);
+		cv::Mat captureImage;
 		{
 			cv::Mat tmpImage;
 			movie >> tmpImage;
-			cv::resize(tmpImage, captureImage, captureImage.size(), cv::INTER_CUBIC);
+			cv::resize(tmpImage, captureImage, cv::Size(image_width, image_heigth), cv::INTER_CUBIC);
 		}
 		if(captureImage.empty())
 			break;
