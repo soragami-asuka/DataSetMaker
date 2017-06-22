@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MovieSeparatorByCut", "Movi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertLineImage", "ConvertLineImage\ConvertLineImage.vcxproj", "{10B5BAFF-F976-4F5A-8B56-EAADD0FB66EC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvertImage2GravisbellDataSet", "ConvertImage2GravisbellDataSet\ConvertImage2GravisbellDataSet.vcxproj", "{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChooseUseImage", "ChooseUseImage\ChooseUseImage.vcxproj", "{03E8BDCC-A80D-441C-8474-6C6AE725F006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,6 +31,14 @@ Global
 		{10B5BAFF-F976-4F5A-8B56-EAADD0FB66EC}.Debug|Win32.Build.0 = Debug|Win32
 		{10B5BAFF-F976-4F5A-8B56-EAADD0FB66EC}.Release|Win32.ActiveCfg = Release|Win32
 		{10B5BAFF-F976-4F5A-8B56-EAADD0FB66EC}.Release|Win32.Build.0 = Release|Win32
+		{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}.Debug|Win32.Build.0 = Debug|Win32
+		{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}.Release|Win32.ActiveCfg = Release|Win32
+		{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}.Release|Win32.Build.0 = Release|Win32
+		{03E8BDCC-A80D-441C-8474-6C6AE725F006}.Debug|Win32.ActiveCfg = Debug|Win32
+		{03E8BDCC-A80D-441C-8474-6C6AE725F006}.Debug|Win32.Build.0 = Debug|Win32
+		{03E8BDCC-A80D-441C-8474-6C6AE725F006}.Release|Win32.ActiveCfg = Release|Win32
+		{03E8BDCC-A80D-441C-8474-6C6AE725F006}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

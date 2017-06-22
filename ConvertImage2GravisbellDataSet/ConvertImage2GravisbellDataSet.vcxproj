@@ -12,9 +12,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{10B5BAFF-F976-4F5A-8B56-EAADD0FB66EC}</ProjectGuid>
+    <ProjectGuid>{5D38C4B6-E1C0-4AA6-9FBF-507894F787D1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ConvertLineImage</RootNamespace>
+    <RootNamespace>ConvertImage2GravisbellDataSet</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,7 +40,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <NuGetPackageImportStamp>bcbc6fed</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>3f4e3e94</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -80,13 +80,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConvertImage2LineImage.h" />
+    <ClInclude Include="..\ConvertLineImage\ConvertImage2LineImage.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConvertImage2LineImage.cpp" />
-    <ClCompile Include="ConvertLineImage.cpp" />
+    <ClCompile Include="..\ConvertLineImage\ConvertImage2LineImage.cpp" />
+    <ClCompile Include="ConvertImage2GravisbellDataSet.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

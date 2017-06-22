@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ConvertImage2LineImage.h">
+    <ClInclude Include="..\ConvertLineImage\ConvertImage2LineImage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,10 +32,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ConvertLineImage.cpp">
+    <ClCompile Include="ConvertImage2GravisbellDataSet.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ConvertImage2LineImage.cpp">
+    <ClCompile Include="..\ConvertLineImage\ConvertImage2LineImage.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
