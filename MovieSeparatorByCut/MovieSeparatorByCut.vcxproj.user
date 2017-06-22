@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommandArguments>$(ProjectDir)\Sample\sample.avi $(ProjectDir)\Sample\export 720 404</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>D:\Video\SWORD_ART_ONLINE_7.mkv E:\OriginalImage\SAO\disc_07 1280 720</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>$(ProjectDir)\Sample\sample.avi $(ProjectDir)\Sample\export 720 404</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>D:\Video\SWORD_ART_ONLINE_7.mkv E:\OriginalImage\SAO\disc_07 1280 720</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
