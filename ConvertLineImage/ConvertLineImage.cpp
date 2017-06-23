@@ -74,7 +74,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		printf("Convert : %s\n",
 			imporFilePath.generic_string().c_str());
 
-		boost::filesystem::wpath exportFilePath = exportDirPath / imporFilePath.parent_path() / (imporFilePath.stem().string() + ".jpg");
+		boost::filesystem::wpath exportFilePath = exportDirPath / imporFilePath.parent_path() / (imporFilePath.stem().string() + ".png");
 
 		// 親ディレクトリが存在しない限り作り続ける
 		{

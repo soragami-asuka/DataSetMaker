@@ -68,7 +68,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		if (boost::filesystem::is_directory(dirPath))
 		{
-			// 画像ファイルの一覧を作成する
+			printf("%s\n", dirPath.string().c_str());
+
+				// 画像ファイルの一覧を作成する
 			std::set<boost::filesystem::path> lpImageFilePath;
 			BOOST_FOREACH(const boost::filesystem::path& p,
 				std::make_pair(boost::filesystem::directory_iterator(dirPath), boost::filesystem::directory_iterator()))
@@ -81,6 +83,8 @@ int _tmain(int argc, _TCHAR* argv[])
 					}
 				}
 			}
+			if(lpImageFilePath.empty())
+				continue;
 
 			// 先端と終端の画像ファイルを使用する
 			std::set<boost::filesystem::path> lpUseImageFilePath;
@@ -104,6 +108,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				cv::Mat image = cv::imread(importFilePath.string(), CV_LOAD_IMAGE_COLOR);
 				if(image.data == NULL)
 					continue;
+				cv::blur(image, image, cv::Size(5,5));
 
 				// サイズ変更
 				cv::Mat resizeImage;
@@ -121,10 +126,10 @@ int _tmain(int argc, _TCHAR* argv[])
 						unsigned char b = imageBuf.imageData[y*imageBuf.widthStep + x*imageBuf.nChannels + 2];
 
 						unsigned char gray = (r + g + b) / 3;
-						distValue += (abs(r - gray) + abs(g - gray) + abs(b - gray))/3;
+						distValue += ((r-gray)*(r-gray) + (g-gray)*(g-gray) + (b-gray)*(b-gray))/3;
 					}
 				}
-				distValue /= (imageBuf.height * imageBuf.width);
+				distValue = sqrt(distValue / (imageBuf.height * imageBuf.width));
 
 				if(distValue > threshold_value)
 				{

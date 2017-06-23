@@ -8,3 +8,13 @@
 /ipch
 /ChooseUseImage/Debug
 /ConvertImage2GravisbellDataSet/Debug
+/ResizeAndCutImage/Debug
+/ResizeAndCutImage/Release
+/ConvertGravisbellDataSet2Image/Debug
+/ConvertGravisbellDataSet2Image/Release
+/ChooseUseImage/Release
+/ConvertImage2GravisbellDataSet/Release
+/ConvertLineImage/Release
+/Release
+/MovieSeparatorByCut/Release
+/MovieSeparator/Release

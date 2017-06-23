@@ -178,25 +178,25 @@ int _tmain(int argc, _TCHAR* argv[])
 				cv::Mat image = cv::imread((importDirPath / imporFilePath).string(), CV_LOAD_IMAGE_COLOR);
 				if(image.data == NULL)
 					continue;
-				
-				// サイズ変更
-				cv::Mat resizeImage;
-				cv::resize(image, resizeImage, cv::Size(image_width, image_height), cv::INTER_CUBIC);
 
 				// 線画に変換
-				cv::Mat lineImage = ::ConvertImage2LineImage(resizeImage);
+				cv::Mat lineImage = ::ConvertImage2LineImage(image);
 				if(lineImage.data == NULL)
 					continue;
 
+				// サイズ変更
+				cv::Mat resizeImage;
+				cv::resize(lineImage, resizeImage, cv::Size(image_width, image_height), cv::INTER_CUBIC);
+
 				// バッファへ書き込み
-				IplImage imageBuf = lineImage;
+				IplImage imageBuf = resizeImage;
 				for(int ch=0; ch<imageBuf.nChannels; ch++)
 				{
 					for(int y=0; y<imageBuf.height; y++)
 					{
 						for(int x=0; x<imageBuf.width; x++)
 						{
-							lpOutputBuffer[ch*image_width*image_height + y*image_width + x] = imageBuf.imageData[y*imageBuf.widthStep + x*imageBuf.nChannels + ch];
+							lpOutputBuffer[ch*image_width*image_height + y*image_width + x] = ((unsigned char)imageBuf.imageData[y*imageBuf.widthStep + x*imageBuf.nChannels + ch] > 192) ? 255 : (unsigned char)imageBuf.imageData[y*imageBuf.widthStep + x*imageBuf.nChannels + ch];
 						}
 					}
 				}
