@@ -143,10 +143,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		// ノイズ除去2回目
 		CleanNoisze(outputBuf1, outputBuf2, 32);
 		// ノイズ除去3回目
-		CleanNoisze(outputBuf2, outputBuf1, 64);
+//		CleanNoisze(outputBuf2, outputBuf1, 64);
 
 		// 強調
-		EmphansisLine(outputBuf1, outputBuf2, 128);
+//		EmphansisLine(outputBuf1, outputBuf2, 128);
 
 		IplImage outputBuf = outputBuf2;
 
@@ -192,8 +192,6 @@ void CleanNoisze(IplImage& inputBuf, IplImage& outputBuf, unsigned int filterSiz
 				float resultValue = 1.0f;
 				if(baseValue < average)
 				{
-//					resultValue = exp(baseValue * (score + 0.5f)) - 1.0f;
-//					resultValue = exp(value * (score + 0.5f)) - 1.0f;
 					resultValue = baseValue;
 				}
 				else

@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResizeAndCutImage", "Resize
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LineImageNoiseCleaner", "LineImageNoiseCleaner\LineImageNoiseCleaner.vcxproj", "{8248D140-F42E-4C94-88A3-4D06A5ABE1EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CovertLineImageVer02", "CovertLineImageVer02\CovertLineImageVer02.vcxproj", "{1CE72C19-EB03-4E19-9F06-4A4930D84A9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -57,6 +59,10 @@ Global
 		{8248D140-F42E-4C94-88A3-4D06A5ABE1EE}.Debug|Win32.Build.0 = Debug|Win32
 		{8248D140-F42E-4C94-88A3-4D06A5ABE1EE}.Release|Win32.ActiveCfg = Release|Win32
 		{8248D140-F42E-4C94-88A3-4D06A5ABE1EE}.Release|Win32.Build.0 = Release|Win32
+		{1CE72C19-EB03-4E19-9F06-4A4930D84A9C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1CE72C19-EB03-4E19-9F06-4A4930D84A9C}.Debug|Win32.Build.0 = Debug|Win32
+		{1CE72C19-EB03-4E19-9F06-4A4930D84A9C}.Release|Win32.ActiveCfg = Release|Win32
+		{1CE72C19-EB03-4E19-9F06-4A4930D84A9C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

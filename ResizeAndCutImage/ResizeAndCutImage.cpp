@@ -90,10 +90,17 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	// 画像 -> Gravisbellデータセット変換
+	int dataNum=0;
 	for(auto importFilePath : lpImageFilePath)
 	{
-		printf("Convert : %s\n",
-			importFilePath.generic_string().c_str());
+		if(dataNum%10 == 0)
+		{
+			printf("Convert : %6d / %6d %s\n",
+				dataNum,
+				lpImageFilePath.size(),
+				importFilePath.generic_string().c_str());
+		}
+		dataNum++;
 
 		// 親ディレクトリが存在しない限り作り続ける
 		{
