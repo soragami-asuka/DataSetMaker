@@ -23,10 +23,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	// カレントディレクトリを取得
 	boost::filesystem::path workDirPath = boost::filesystem::current_path();
 
-	if(argc < 4)
+	if(argc < 3)
 	{
 		printf("引数が少なすぎます\n");
-		printf("ConvertImage2GravisbellDataSet.exe 入力ディレクトリパス 出力先ディレクトリパス 閾値(0～255)\n");
+		printf("ConvertImage2GravisbellDataSet.exe 入力ディレクトリパス 出力先ディレクトリパス\n");
 #ifdef _DEBUG
 		printf("Press Any Key to Continue\n");
 		getc(stdin);
@@ -35,7 +35,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	boost::filesystem::wpath importDirPath = argv[1];	importDirPath.normalize();
 	boost::filesystem::wpath exportDirPath = argv[2];	exportDirPath.normalize();
-	unsigned int threshold_value = _wtoi(argv[3]);
 
 	if(!boost::filesystem::is_directory(importDirPath))
 	{
@@ -94,9 +93,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 			// 先端と終端の画像ファイルを使用する
 			std::set<boost::filesystem::path> lpUseImageFilePath;
-//			lpUseImageFilePath.insert(*lpImageFilePath.begin());
-//			lpUseImageFilePath.insert(*lpImageFilePath.rbegin());
-			lpUseImageFilePath = lpImageFilePath;
+			lpUseImageFilePath.insert(*lpImageFilePath.begin());
+			lpUseImageFilePath.insert(*lpImageFilePath.rbegin());
+//			lpUseImageFilePath = lpImageFilePath;
 			for(boost::filesystem::path importFilePath : lpUseImageFilePath)
 			{
 				// 親ディレクトリ名を利用して出力ファイル名を決める
@@ -140,6 +139,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 					lpChannels[ch] = mat_ave_cols.at<double>(0,0);
 				}
+				double aveSaturation = lpChannels[1];
+				double aveLightness  = lpChannels[2];
 
 				// 2乗平均、分散をとる
 				double lpChannelsAve2[3]     = {0.0, 0.0, 0.0};
@@ -240,10 +241,13 @@ int _tmain(int argc, _TCHAR* argv[])
 				fprintf(fp_log, "%s,%f,%f,%f,%f,%f,%f,%f,%f,%f\n", exportFileName.c_str(), grayDist, lpChannels[1], lpChannelsAve2[1], lpChannelsVariance[1], lpChannels[2], lpChannelsAve2[2], lpChannelsVariance[2], hueAveValue, hueVariance);
 #endif
 
-				if(grayDist > threshold_value)
+				if(grayDist >= 5 && aveSaturation>=20 && aveLightness>=45)
 				{
+					boost::filesystem::path copyFromPath = importDirPath / importFilePath;	copyFromPath.normalize();
+					boost::filesystem::path copyToPath   = workDirPath / exportDirPath / exportFileName;	copyToPath.normalize();
+
 					// ファイルをコピーする
-					boost::filesystem::copy(importFilePath, exportDirPath / exportFileName);
+					boost::filesystem::copy(copyFromPath, copyToPath);
 				}
 			}
 		}

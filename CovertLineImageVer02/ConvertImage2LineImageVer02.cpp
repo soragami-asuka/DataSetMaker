@@ -24,7 +24,7 @@ cv::Mat ConvertImage2LineImageVer02(cv::Mat& image)
 	mat_gray /= 0xFF;
 
 	// ”’‚¢•”•ª‚ð–c’£‚³‚¹‚é
-	cv::Mat_<double> element(8, 8, 1.0);
+	cv::Mat_<double> element(3, 3, 1.0);
 	cv::Mat_<double> mat_gray_dilate;
 	cv::dilate(mat_gray, mat_gray_dilate, element);
 
@@ -49,7 +49,7 @@ cv::Mat ConvertImage2LineImageVer02(cv::Mat& image)
 
 	double standard_diviation = sqrt(mat_dist_line_average_cols.at<double>(0,0));
 
-	double bias = std::min(0.1, standard_diviation) * 3;
+	double bias = std::min(0.1, standard_diviation*2) * 3;
 
 
 		// ‰æ‘œ‚É•ÏŠ·
